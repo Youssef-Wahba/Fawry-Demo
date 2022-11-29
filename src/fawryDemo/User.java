@@ -3,10 +3,16 @@ package fawryDemo;
 public class User {
 	private String userName,email,password;
 	
-	User(String email,String password){
+	User(){
+		this.email="";
+		this.password="";
+		this.userName="";
+	}
+	
+	User(String userName,String email,String password){
 		this.email=email;
 		this.password=password;
-		this.userName="sdsd";
+		this.userName=userName;
 	}
 	
 	public void setEmail(String email) {
@@ -32,10 +38,4 @@ public class User {
 	public String getUserName() {
 		return userName;
 	}
-	
-	
-	
-	
-	
-	
 }
