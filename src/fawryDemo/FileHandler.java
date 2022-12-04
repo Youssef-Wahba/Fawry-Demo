@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import users.IPerson;
@@ -34,5 +35,22 @@ public class FileHandler {
 			}
 		}
 		return flag;
+	}
+	
+	public HashMap<String,String> checkServiceInFile(String fileName,String serviceName)throws FileNotFoundException{
+		HashMap<String,String> map=new HashMap<String,String>();
+		Scanner reader =new Scanner(new File(fileName));
+		String check;
+		while(reader.hasNextLine()) {
+			check=reader.nextLine();
+			String[] servicesArray=check.split(" ");
+			for(int i=1;i<servicesArray.length;i++) {
+				String s=servicesArray[i].toLowerCase();
+				if(s.contains(serviceName)) {
+					map.put(servicesArray[0], servicesArray[i]);
+				}
+			}
+		}
+		return map;
 	}
 }

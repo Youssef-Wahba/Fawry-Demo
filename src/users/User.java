@@ -7,14 +7,14 @@ public class User implements IPerson {
 	boolean isLoggedIn;
 	private Wallet wallet;
 	
-	User(){
+	public User(){
 		this.email="";
 		this.password="";
 		this.userName="";
 		this.isLoggedIn = false;
 	}
 	
-	User(String userName,String email,String password){
+	public User(String userName,String email,String password){
 		this.email=email;
 		this.password=password;
 		this.userName=userName;
