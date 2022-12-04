@@ -1,4 +1,4 @@
-package fawryDemo;
+package users;
 
 public interface IPerson {
 	public void setUserName(String userName);

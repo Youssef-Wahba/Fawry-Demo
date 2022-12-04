@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import users.IPerson;
+
 public class FileHandler {
 	
 	public void appendInFile(String fileName,String s) throws IOException {

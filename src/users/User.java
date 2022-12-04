@@ -1,4 +1,6 @@
-package fawryDemo;
+package users;
+
+import fawryDemo.Wallet;
 
 public class User implements IPerson {
 	private String userName,email,password;
