@@ -1,14 +1,11 @@
 package Handlers;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -77,6 +74,7 @@ public class FileHandler {
 			String[] adminArr =check.split(" ");
 			if(adminArr[1].equals(a.getEmail())) {
 				if(adminArr[2].equals(a.getPassword())) {
+					a.setUserName(adminArr[0]);
 					flag=true;
 					return flag;
 				}else {
@@ -86,8 +84,8 @@ public class FileHandler {
 		}
 		return flag;
 	}
-	public HashMap<String,String> checkServiceInFile(String fileName,String serviceName)throws FileNotFoundException{
-		HashMap<String,String> map=new HashMap<String,String>();
+	public ArrayList<String> checkServiceInFile(String fileName,String serviceName)throws FileNotFoundException{
+		ArrayList<String> list=new ArrayList<String>();
 		Scanner reader =new Scanner(new File(fileName));
 		String check;
 		while(reader.hasNextLine()) {
@@ -96,12 +94,24 @@ public class FileHandler {
 			for(int i=1;i<servicesArray.length;i++) {
 				String s=servicesArray[i].toLowerCase();
 				if(s.contains(serviceName)) {
-					map.put(servicesArray[0], servicesArray[i]);
+					list.add(s);
 				}
 			}
 		}
-		return map;
+		return list;
 	}
+	
+	public ArrayList<String> printAll(String fileName) throws FileNotFoundException{
+		ArrayList<String> list=new ArrayList<String>();
+		Scanner reader =new Scanner(new File(fileName));
+		String check;
+		while(reader.hasNextLine()) {
+			check=reader.nextLine();
+			list.add(check);
+		}
+		return list;
+	}
+	
 	
 	public void replaceLine(String fileName,String oldLine,String newLine) {
 		ArrayList<String> fileLines=new ArrayList<String>();

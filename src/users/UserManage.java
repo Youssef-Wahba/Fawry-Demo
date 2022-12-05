@@ -2,6 +2,7 @@ package users;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import Handlers.FileHandler;
@@ -36,7 +37,8 @@ public class UserManage implements IPersonManage{
 		}
 		return false;
 	}
-	public HashMap<String, String> searchService(String serviceName) throws FileNotFoundException{
+	
+	public ArrayList<String> searchService(String serviceName) throws FileNotFoundException{
 		return fH.checkServiceInFile("services.txt", serviceName.toLowerCase());
 	}
 }

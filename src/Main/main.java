@@ -2,6 +2,7 @@ package Main;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ import Transaction.WalletTransaction;
 import landlineFactory.MonthlyLandlineFactory;
 import landlineFactory.MonthlyReciept;
 import landlineFactory.QuarterLandlineFactory;
+import users.Admin;
+import users.AdminManage;
 import users.IPerson;
 import users.User;
 import users.UserManage;
@@ -85,8 +88,6 @@ public class main {
 							try {
 								if(userManage.signIn()) {
 									System.out.println("signed in");
-									System.out.println(user.getUserName());
-									System.out.println(user.getCreditCard().getAmount());
 								}else {
 									System.out.println("invalid email or password");
 									break;
@@ -97,7 +98,7 @@ public class main {
 //							while the user is logged in do
 							do {
 								System.out.println("-------------------");
-								System.out.println("1.Normal Transaction.\n2.Add To Wallet Transaction.\n3.Request Refund Transaction\n4.Sign Out");
+								System.out.println("1.Normal Transaction.\n2.Add To Wallet Transaction.\n3.Request Refund Transaction\n4.Search services.\n5.Sign Out");
 								System.out.println("-------------------");
 								System.out.print("\nchoice : ");
 								in =new Scanner(System.in);
@@ -243,7 +244,18 @@ public class main {
 									t.submit();
 									break;
 								}
-								case 4:{
+								case 4 :{
+									try {
+										System.out.print("Enter query : ");
+										String s=new Scanner(System.in).nextLine();
+										System.out.println(userManage.searchService(s)); 
+									}catch(FileNotFoundException e) {
+										e.printStackTrace();
+									}
+									break;
+									
+								}
+								case 5:{
 									userManage.signOut();
 									break;
 								}
@@ -269,6 +281,51 @@ public class main {
 					}while(choice2>0&&choice2<4);
 					break;
 				}
+//				admin
+				case 2 :{
+					in= new Scanner(System.in);
+					System.out.println("Email : ");
+					String email = in.nextLine();
+					System.out.println("Password : ");
+					String password = in.nextLine();
+					Admin admin=new Admin("",email,password);
+					AdminManage adminManage=new AdminManage(admin);
+					try {
+						if(adminManage.signIn()) {
+							do {
+								System.out.println("-------------");
+								System.out.println("1.List all payment transactions\n2.List all wallet funds\n3.Sign Out");
+								System.out.println("-------------");
+								System.out.print("Choice : ");
+								int choice2=new Scanner(System.in).nextInt();
+								switch(choice2) {
+									case 1:{
+										adminManage.listAllPayment();
+										break;
+									}
+									case 2:{
+										adminManage.listAllWalletFunds();
+										break;
+									}
+									case 3:{
+										adminManage.signOut();
+										break;
+									}
+									default:{
+										System.out.println("Invalid choice");
+									}
+								}
+								
+								
+							}while(admin.getIsLoggedIn());
+						}else {
+							System.out.println("invalid email or password");
+							break;
+						}
+					}catch(FileNotFoundException e){
+						e.printStackTrace();
+					}
+				}
 //				exit
 				case 3 :{
 					return;
@@ -280,11 +337,6 @@ public class main {
 				}
 			}
 		}while( choice>0 && choice<3 );		
-		
-		
-				
-		
-		
 		return;
 	}
 

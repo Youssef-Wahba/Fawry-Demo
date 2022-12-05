@@ -3,13 +3,13 @@ package users;
 public class Admin implements IPerson{
 	private String userName,password,email;
 	private boolean isLoggedIn;
-	Admin(){
+	public Admin(){
 		this.email = "";
 		this.isLoggedIn = false;
 		this.password = "";
 		this.userName = "";
 	}
-	Admin(String userName,String email, String password){
+	public Admin(String userName,String email, String password){
 		this.email = email;
 		this.isLoggedIn = false;
 		this.password = password;

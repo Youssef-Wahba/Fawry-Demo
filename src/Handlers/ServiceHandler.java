@@ -5,11 +5,6 @@ import java.util.Scanner;
 
 public class ServiceHandler {
 	
-	public void printResponse(HashMap<String,String> m) {
-		 for (String i : m.keySet()) {
-		     System.out.println(i + " : " + m.get(i));
-		 }
-	}
 	public HashMap<String,String> getAmountFromRequirements(String [] req) {
 		HashMap<String, String> map=new HashMap<String,String>();
 		Scanner in =new Scanner(System.in);
