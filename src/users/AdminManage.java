@@ -2,7 +2,7 @@ package users;
 
 import java.io.FileNotFoundException;
 
-import fawryDemo.FileHandler;
+import Handlers.FileHandler;
 
 public class AdminManage implements IPersonManage{
 	private Admin a;
@@ -14,7 +14,7 @@ public class AdminManage implements IPersonManage{
 	
 	@Override
 	public boolean signIn() throws FileNotFoundException {
-		if(fH.checkPersonInFile("admins.txt", a)) {
+		if(fH.checkAdminInFile("admins.txt", a)) {
 			a.setIsLoggedIn(true);
 			return true;
 		}

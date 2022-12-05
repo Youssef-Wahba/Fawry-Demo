@@ -17,6 +17,7 @@ public class ServiceHandler {
 			System.out.print(req[i]+" : ");
 			map.put(req[i], in.nextLine());
 		}
+		System.out.println("asdasd");
 		return map;
 	}
 	

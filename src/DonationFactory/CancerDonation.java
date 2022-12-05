@@ -2,14 +2,14 @@ package DonationFactory;
 
 import java.util.HashMap;
 
-import MobileInternetFactory.ServiceHandler;
+import Handlers.ServiceHandler;
 
 public class CancerDonation implements IDonation{
 	private String ServiceName = "Cancer-Donation";
 	private double taxes = 0.017;	//2% taxes
 	private double serviceFunds = 0.003;		//other services funds 1%
 	private double amount;
-	private String [] requirements= {"Cancer Organization Name","Amount"};
+	private String [] requirements= {"Organization Name","Amount"};
 	private ServiceHandler handler= new ServiceHandler();
 	
 	@Override

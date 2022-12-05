@@ -1,0 +1,4 @@
+Vodafone-EG Vodafone-Internet-Payment Vodafone-Mobile-Recharge
+Etisalat-EG Etisalat-Internet-Payment Etisalat-Mobile-Recharge
+Donations Cancer-Donation School-Donation
+Landline-EG Monthly-Reciept-Landline Quarter-Reciept-Landline

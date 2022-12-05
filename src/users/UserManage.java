@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
-import fawryDemo.FileHandler;
+import Handlers.FileHandler;
 
 public class UserManage implements IPersonManage{
 
@@ -30,8 +30,8 @@ public class UserManage implements IPersonManage{
 	}
 
 	public boolean signUp() throws IOException{
-		if(!fH.checkPersonInFile("users.txt", u)) {
-			fH.appendInFile("users.txt", u.getUserName()+" "+u.getEmail()+" "+u.getPassword());
+		if(!fH.checkUserInFile("users.txt", u)) {
+			fH.appendInFile("users.txt", u.getUserName()+" "+u.getEmail()+" "+u.getPassword()+" "+u.getCreditCard().getCreditCardNumber()+" "+u.getCreditCard().getAmount()+" "+u.getWallet().getAmount());
 			return true;
 		}
 		return false;
