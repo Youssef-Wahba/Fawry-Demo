@@ -8,7 +8,7 @@ file -> import -> existing gradle project -> next -> select project source code 
 Requirements for project from JDK
 The project requires JDK 19
 
-attached in "attachment" directory all:  Sequence diagrams for different cases, Class diagram, Subsystem decomposition diagram,
+attached in "attachments" directory all:  Sequence diagrams for different cases, Class diagram, Subsystem decomposition diagram,
                                          Software design specification (SDS) document and postman collection JSON file 
 
 APIs examples.
