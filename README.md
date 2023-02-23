@@ -11,6 +11,8 @@ The project requires JDK 19
 attached in "attachments" directory all:  Sequence diagrams for different cases, Class diagram, Subsystem decomposition diagram,
                                          Software design specification (SDS) document and postman collection JSON file 
 
+all API routes in postman collection are well teste
+
 APIs examples.
 ----------------------------------------------------
 
