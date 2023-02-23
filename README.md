@@ -5,8 +5,11 @@ steps for importing the project to eclips:
 file -> import -> existing gradle project -> next -> select project source code from filesystem
  -> press run button on the top left
 
-Requeirements for project from JDK
+Requirements for project from JDK
 The project requires JDK 19
+
+attached in "attachment" directory all:  Sequence diagrams for different cases, Class diagram, Subsystem decomposition diagram,
+                                         Software design specification (SDS) document and postman collection JSON file 
 
 APIs examples.
 ----------------------------------------------------
